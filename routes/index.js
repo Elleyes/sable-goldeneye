@@ -10,14 +10,14 @@ const db = require('../database')
 //verb and uri must be unique within the app
 
 router.get('/', function(req, res, next) {
-    //setting title variable
-    db.getListos()
-        .then(todos => {
-            res.render('index', {
-                title: 'NOT Trello',
-                todos
-            })
-        })
+  //setting title variable
+  db.getListos()
+    .then(todos => {
+      res.render('index', {
+        title: 'NOT Trello',
+        todos
+      })
+    })
 })
 
 router.post('/api/todo', function(req, res) {
@@ -51,6 +51,14 @@ router.post('/api/todo/modify', function(request, res) {
     }
     console.log('modify');
     res.redirect('/')
+})
+
+router.post( '/api/todo/:id', (request, response) => {
+  const { id } = request.params
+  const { completed } = request.body
+
+  db.updateCompletion( id, completed )
+    .then( result => response.json({ message: `${id} completed` }) )
 })
 
 module.exports = router

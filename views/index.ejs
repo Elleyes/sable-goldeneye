@@ -3,7 +3,7 @@
 
 <head>
     <title>
-      To Do
+        To Do
     </title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
 
@@ -11,37 +11,45 @@
 
 <body class="background">
     <div class="rug">
-        <h1>To Do</h1>
-        <form method="POST" action="/api/todo">
-          <br>
-          <input type="text" name="item" placeholder="Add Task">
-        </form>
-        <form method="POST" action="/api/todo/modify">
-          <button type="complete" name="complete">Done Task</button>
-            <div class="list-body" To-Do>
-                <div class="panel-body">
-                    <span class="list-group">
-                  <div id="whole">
-                    <% for( let i = 0; i < todos.length; i++ ) { %>
-                      <div>
-                        <input type="checkbox" id="checkbox-<%= todos[ i ].id %>" name="todos" value="<%= todos[ i ].id %>" />
-                        <% if (todos[i].complete) { %>
-                        <label id="<%= todos[ i ].id %>" type="edit" name="edit" onclick="clicky('<%= todos[ i ].id %>')" style="display: inline-block" contentEditable="false" action="edit" class="completed">
-                        <%= todos[ i ].task %>
-                      </label>
-                <% } else { %>
-                    <label id="<%= todos[ i ].id %>" type="edit" name="edit" onclick="clicky('<%= todos[ i ].id %>')" style="display: inline-block" contentEditable="false" action="edit">
-                      <%= todos[ i ].task %>
-                    </label>
-            </div>
-            <% } %>
-            <% } %>
-            <p>Archived Tasks</p>
-        </div>
-        </span>
+      <h1>To Do</h1>
+      <form method="POST" action="/api/todo">
+        <br>
+        <input type="text" name="item" placeholder="Add Task">
+      </form>
+      <div class="list-body" To-Do>
+        <div class="panel-body">
+          <span class="list-group">
+            <div id="whole">
+              <div id="open-todos">
+              <% for( let i = 0; i < todos.length; i++ ) { %>
+                <% if( ! todos[ i ].complete ) { %>
+                <div id="todo-<%= todos[ i ].id %>">
+                  <input type="checkbox" id="checkbox-<%= todos[ i ].id %>" data-id="<%= todos[ i ].id %>" name="todos" value="<%= todos[ i ].id %>" <%= todos[ i ].complete ? 'checked="checked"' : '' %>/>
+                  <label id="todo-label-<%= todos[ i ].id %>" type="edit" name="edit" onclick="clicky('<%= todos[ i ].id %>')" style="display: inline-block" contentEditable="false" action="edit">
+                    <%= todos[ i ].task %>
+                  </label>
+                </div>
+                <% } %>
+              <% } %>
+              </div>
+
+              <p>Archived Tasks</p>
+              <div id="completed-todos">
+              <% for( let i = 0; i < todos.length; i++ ) { %>
+                <% if( todos[ i ].complete ) { %>
+                <div id="todo-<%= todos[ i ].id %>">
+                  <input type="checkbox" id="checkbox-<%= todos[ i ].id %>" data-id="<%= todos[ i ].id %>" name="todos" value="<%= todos[ i ].id %>" <%= todos[ i ].complete ? 'checked="checked"' : '' %>/>
+                  <label id="todo-label-<%= todos[ i ].id %>" type="edit" name="edit" onclick="clicky('<%= todos[ i ].id %>')" style="display: inline-block" contentEditable="false" action="edit" class="completed">
+                    <%= todos[ i ].task %>
+                  </label>
+                </div>
+                <% } %>
+              <% } %>
               </div>
             </div>
-        </form>
+          </span>
+        </div>
+      </div>
     </div>
     <script src="main.js"></script>
 </body>

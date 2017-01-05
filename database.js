@@ -3,7 +3,7 @@ const CONNECTION_STRING = "pg://melissamorel@localhost:5432/todolist"
 const db = pgp( CONNECTION_STRING )
 
 const getListos = () =>
-  db.any( "SELECT * FROM items" )
+  db.any( "SELECT * FROM items ORDER BY id" )
 
   // Equivalent to above
   // function getListos() {
@@ -23,4 +23,7 @@ const editTask = (newTask, id) =>
   db.oneOrNone( "UPDATE items SET task=$1 WHERE id=$2", [newTask, id]);
 //update function
 
-module.exports = { getListos, addItems, removeItems, markComplete, editTask }
+const updateCompletion = (id, completed) =>
+  db.none( "UPDATE items SET complete=$2 WHERE id=$1", [ id, completed ])
+
+module.exports = { getListos, addItems, removeItems, markComplete, editTask, updateCompletion }
