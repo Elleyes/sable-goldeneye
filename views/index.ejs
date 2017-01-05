@@ -2,55 +2,48 @@
 <html>
 
 <head>
-
     <title>
+      To Do
     </title>
-
-  <style>
-
-  .openTask{
-    background-color: #E8762B;
-  }
-
-  .completeTask{
-    background-color: #FFD6C2;
-  }
-
-  </style>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
 
 </head>
 
-<body>
-
-  <div class="openTask">
-    <h1>To Do List Title</h1>
-
-    <form method="POST" action="/api/todo">
-      <input type="text" name="item">
-      <br>
-      <br>
-      <button type="submit">Add</button>
-    </form>
-
-    <button>Complete</button>
-    <button>Edit</button> <!--Mel- add text-->
-
-    <form>
-      <% for( let i = 0; i < todos.length; i++ ) { %>
-          <%= todos[ i ].task %>
-      <% } %>
-      <p>To do items to display here!</p>
+<body class="background">
+    <div class="rug">
+        <h1>To Do</h1>
+        <form method="POST" action="/api/todo">
+          <br>
+          <input type="text" name="item" placeholder="Add Task">
+        </form>
+        <form method="POST" action="/api/todo/modify">
+          <button type="complete" name="complete">Done Task</button>
+            <div class="list-body" To-Do>
+                <div class="panel-body">
+                    <span class="list-group">
+                  <div id="whole">
+                    <% for( let i = 0; i < todos.length; i++ ) { %>
+                      <div>
+                        <input type="checkbox" id="checkbox-<%= todos[ i ].id %>" name="todos" value="<%= todos[ i ].id %>" />
+                        <% if (todos[i].complete) { %>
+                        <label id="<%= todos[ i ].id %>" type="edit" name="edit" onclick="clicky('<%= todos[ i ].id %>')" style="display: inline-block" contentEditable="false" action="edit" class="completed">
+                        <%= todos[ i ].task %>
+                      </label>
+                <% } else { %>
+                    <label id="<%= todos[ i ].id %>" type="edit" name="edit" onclick="clicky('<%= todos[ i ].id %>')" style="display: inline-block" contentEditable="false" action="edit">
+                      <%= todos[ i ].task %>
+                    </label>
+            </div>
+            <% } %>
+            <% } %>
+            <p>Archived Tasks</p>
+        </div>
+        </span>
+              </div>
+            </div>
+        </form>
     </div>
-
-    <div  class="completeTask">
-      <hr><!--Mel - consider deleting -->
-      <p>Completed items</p>
-      <p>Completed items</p>
-      <p>Completed items</p>
-      <p>Completed items</p>
-    </form>
-
-    </div>
-
+    <script src="main.js"></script>
 </body>
+
 </html>
