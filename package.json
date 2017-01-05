@@ -1,0 +1,25 @@
+{
+  "name": "sable-goldeneye",
+  "version": "1.0.0",
+  "description": "# To Do List ## Description",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Elleyes/sable-goldeneye.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Elleyes/sable-goldeneye/issues"
+  },
+  "homepage": "https://github.com/Elleyes/sable-goldeneye#readme",
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "ejs": "^2.5.5",
+    "express": "^4.14.0",
+    "nodemon": "^1.11.0"
+  }
+}
