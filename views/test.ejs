@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Test</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+
+<body>
+  <% for( let i = 0; i < todos.length; i++ ) { %>
+    <div>
+      <%= todos[ i ].id %>
+      <%= todos[ i ].task %>
+      <%= todos[ i ].complete %>
+    </div>
+  <% } %>
+</body>
+
+</html>

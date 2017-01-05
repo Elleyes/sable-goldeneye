@@ -1,0 +1,28 @@
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00B7FF;
+}
+
+.completed {
+  text-decoration: line-through;
+  opacity: 0.5;
+}
+
+.background {
+  background-repeat: no-repeat;
+  background-size: 1080px auto;
+
+}
+
+/*.rug {
+  position: relative;
+  z-index: 100;
+  padding: 20px;
+  background: rgb(34,34,34);
+  background: rgba(34,34,34,0.75);
+}
+*/

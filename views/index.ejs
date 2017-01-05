@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>
+        To Do
+    </title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+
+</head>
+
+<body class="background">
+    <div class="rug">
+      <h1>To Do</h1>
+      <form method="POST" action="/api/todo">
+        <br>
+        <input type="text" name="item" placeholder="Add Task">
+      </form>
+      <div class="list-body" To-Do>
+        <div class="panel-body">
+          <span class="list-group">
+            <div id="whole">
+              <div id="open-todos">
+              <% for( let i = 0; i < todos.length; i++ ) { %>
+                <% if( ! todos[ i ].complete ) { %>
+                <div id="todo-<%= todos[ i ].id %>">
+                  <input type="checkbox" id="checkbox-<%= todos[ i ].id %>" data-id="<%= todos[ i ].id %>" name="todos" value="<%= todos[ i ].id %>" <%= todos[ i ].complete ? 'checked="checked"' : '' %>/>
+                  <label id="todo-label-<%= todos[ i ].id %>" type="edit" name="edit" onclick="clicky('<%= todos[ i ].id %>')" style="display: inline-block" contentEditable="false" action="edit">
+                    <%= todos[ i ].task %>
+                  </label>
+                </div>
+                <% } %>
+              <% } %>
+              </div>
+
+              <p>Archived Tasks</p>
+              <div id="completed-todos">
+              <% for( let i = 0; i < todos.length; i++ ) { %>
+                <% if( todos[ i ].complete ) { %>
+                <div id="todo-<%= todos[ i ].id %>">
+                  <input type="checkbox" id="checkbox-<%= todos[ i ].id %>" data-id="<%= todos[ i ].id %>" name="todos" value="<%= todos[ i ].id %>" <%= todos[ i ].complete ? 'checked="checked"' : '' %>/>
+                  <label id="todo-label-<%= todos[ i ].id %>" type="edit" name="edit" onclick="clicky('<%= todos[ i ].id %>')" style="display: inline-block" contentEditable="false" action="edit" class="completed">
+                    <%= todos[ i ].task %>
+                  </label>
+                </div>
+                <% } %>
+              <% } %>
+              </div>
+            </div>
+          </span>
+        </div>
+      </div>
+    </div>
+    <script src="main.js"></script>
+</body>
+
+</html>
