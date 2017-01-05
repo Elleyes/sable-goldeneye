@@ -18,16 +18,16 @@ Goals
 
 ### User Stories:
 
-- [ ] I can create to do list items (60:)
-- [ ] I can delete unwanted to do list items (60:)
-- [ ] I can check items off as completed (60:)
-- [ ] I can rearrange to do list items (60:)
-- [ ] I can edit the text on existing to do's (60:)
+- [x] I can create to do list items
+- [ ] I can delete unwanted to do list items
+- [x] I can check items off as completed
+- [x] I can rearrange to do list items
+- [x] I can edit the text on existing to do's
 
 ### Additional Specs:
-- [ ] Create the back end using node and express (60:)
-- [ ] Create a database of to do list items (60:)
-- [ ] JS Lint finds no mistakes (60:)
+- [x] Create the back end using node and express
+- [x] Create a database of to do list items
+- [ ] JS Lint finds no mistakes
 
 ## Stretch Specifications
 - [ ] Deploy the app to heroku
