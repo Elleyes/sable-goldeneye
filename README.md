@@ -32,5 +32,10 @@ Goals
 ## Stretch Specifications
 - [ ] Deploy the app to heroku
 
+## Setup
 
+1. install Postgress.app
+2. install Postico.app
+3. Start both
+4. Copy/paste the contents of schema.sql into a new query window in Postico and execute.
 
