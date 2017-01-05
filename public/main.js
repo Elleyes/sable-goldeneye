@@ -1,10 +1,21 @@
 function clicky(i) {
-    var it = document.getElementById(i);
+
+    let it = document.getElementById(`todo-label-${i}`);
+
     it.contentEditable = 'true';
     it.addEventListener('keypress', function(e) {
-        var key = e.which || e.keyCode;
+        let key = e.which || e.keyCode;
         if (key === 13) {
             it.setAttribute("contentEditable", "false")
+
+            fetch( `/api/todo/edit`, {
+              method: 'POST',
+              body: JSON.stringify({ newToDo: it.innerText, id: i }),
+              headers: new Headers({
+                "Content-Type": "application/json",
+                "Accept": "application/json"
+              })
+            })
             // making an ajax/fetch request to /api/todo/modify
             // how to pass that value in fetch request
         }

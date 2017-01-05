@@ -35,7 +35,7 @@ router.post('/api/todo', function(req, res) {
     }
 })
 
-router.post('/api/todo/modify', function(request, res) {
+router.post('/api/todo/modify', function(request, response) {
     // Get all the items IDs
     console.log(request.body)
     if ('delete' in request.body) {
@@ -47,10 +47,16 @@ router.post('/api/todo/modify', function(request, res) {
         db.markComplete(request.body.todos)
     } else if ('edit' in request.body) {
         console.log("editing")
-        db.editTask(request.body.todos)
+        db.editTask(request.body.todos, request.body.newToDo)
     }
     console.log('modify');
-    res.redirect('/')
+    response.redirect('/')
+})
+
+router.post('/api/todo/edit',  function(request, response) {
+
+  db.editTask(request.body.newToDo, request.body.id)
+  response.redirect('/')
 })
 
 router.post( '/api/todo/:id', (request, response) => {
