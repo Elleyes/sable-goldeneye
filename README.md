@@ -4,7 +4,16 @@
 ## Description
 
 Complete a to do list application that applies user stories.
-Implements node, express, postgress, EJS embeded javascript, css.
+
+## Tech Stack And Tools
+
+1.  Node
+2.  Express
+3.  Postgress
+4.  EJS
+5.  CSS
+6.  Postico
+7.  Postman
 
 ## Context
 
@@ -16,21 +25,20 @@ Goals
 
 ## Specifications
 
-### User Stories:
+### User Stories
 
 - [x] I can create to do list items
-- [ ] I can delete unwanted to do list items
+- [x] I can delete unwanted to do list items
 - [x] I can check items off as completed
 - [x] I can rearrange to do list items
 - [x] I can edit the text on existing to do's
 
-### Additional Specs:
+### Additional Specs
 - [x] Create the back end using node and express
 - [x] Create a database of to do list items
-- [ ] JS Lint finds no mistakes
 
 ## Stretch Specifications
 - [ ] Deploy the app to heroku
 
-
+## Documentation
 
