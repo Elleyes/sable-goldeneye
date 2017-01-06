@@ -21,29 +21,32 @@
           <span class="list-group">
             <div id="whole">
               <div id="open-todos">
-              <% for( let i = 0; i < todos.length; i++ ) { %>
-                <% if( ! todos[ i ].complete ) { %>
-                <div id="todo-<%= todos[ i ].id %>">
-                  <input type="checkbox" id="checkbox-<%= todos[ i ].id %>" data-id="<%= todos[ i ].id %>" name="todos" value="<%= todos[ i ].id %>" <%= todos[ i ].complete ? 'checked="checked"' : '' %>/>
-                  <label id="todo-label-<%= todos[ i ].id %>" type="edit" name="edit" onclick="clicky('<%= todos[ i ].id %>')" style="display: inline-block" contentEditable="false" action="edit">
-                    <%= todos[ i ].task %>
-                  </label>
-                </div>
-                <% } %>
-              <% } %>
-              </div>
-              <p>Archived Tasks</p>
-              <div id="completed-todos">
-              <% for( let i = 0; i < todos.length; i++ ) { %>
-                <% if( todos[ i ].complete ) { %>
-                <div id="todo-<%= todos[ i ].id %>">
-                  <input type="checkbox" id="checkbox-<%= todos[ i ].id %>" data-id="<%= todos[ i ].id %>" name="todos" value="<%= todos[ i ].id %>" <%= todos[ i ].complete ? 'checked="checked"' : '' %>/>
-                  <label id="todo-label-<%= todos[ i ].id %>" type="edit" name="edit" onclick="clicky('<%= todos[ i ].id %>')" style="display: inline-block" contentEditable="false" action="edit" class="completed">
-                    <%= todos[ i ].task %>
-                  </label>
-                </div>
-                <% } %>
-              <% } %>
+                <form method="POST" action="api/todo/delete">
+                  <% for( let i = 0; i < todos.length; i++ ) { %>
+                    <% if( ! todos[ i ].complete ) { %>
+                    <div id="todo-<%= todos[ i ].id %>">
+                      <input type="checkbox" id="checkbox-<%= todos[ i ].id %>" data-id="<%= todos[ i ].id %>" name="todos" value="<%= todos[ i ].id %>" <%= todos[ i ].complete ? 'checked="checked"' : '' %>/>
+                      <label id="todo-label-<%= todos[ i ].id %>" type="edit" name="edit" onclick="clicky('<%= todos[ i ].id %>')" style="display: inline-block" contentEditable="false" action="edit">
+                        <%= todos[ i ].task %>
+                      </label>
+                    </div>
+                    <% } %>
+                  <% } %>
+                  </div>
+                  <p>Archived Tasks</p>
+                  <div id="completed-todos">
+                  <% for( let i = 0; i < todos.length; i++ ) { %>
+                    <% if( todos[ i ].complete ) { %>
+                    <div id="todo-<%= todos[ i ].id %>">
+                      <input type="checkbox" id="checkbox-<%= todos[ i ].id %>" data-id="<%= todos[ i ].id %>" name="todos" value="<%= todos[ i ].id %>" <%= todos[ i ].complete ? 'checked="checked"' : '' %>/>
+                      <label id="todo-label-<%= todos[ i ].id %>" type="edit" name="edit" onclick="clicky('<%= todos[ i ].id %>')" style="display: inline-block" contentEditable="false" action="edit" class="completed">
+                        <%= todos[ i ].task %>
+                      </label>
+                      <button>x</button>
+                    </div>
+                    <% } %>
+                  <% } %>
+                </form>
               </div>
             </div>
           </span>
