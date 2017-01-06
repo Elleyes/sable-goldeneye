@@ -4,17 +4,11 @@ var path = require('path')
 
 const db = require('../database')
 
-// app.use(bodyParser.urlencoded({extended: true}))
-/* GET home page. */
-
-//verb and uri must be unique within the app
-
 router.get('/', function(req, res, next) {
   //setting title variable
   db.getListos()
     .then(todos => {
       res.render('index', {
-        title: 'NOT Trello',
         todos
       })
     })
@@ -35,13 +29,9 @@ router.post('/api/todo', function(req, res) {
     }
 })
 
-router.post('/api/todo/modify', function(request, response) {
-    // Get all the items IDs
-    if ('delete' in request.body) {
-        console.log("deleting")
-        db.removeItems(request.body.todos)
-    }
-    console.log('modify');
+router.post('/api/todo/delete', function(request, response) {
+    console.log("deleting")
+    db.removeItems(request.body.todos)
     response.redirect('/')
 })
 
