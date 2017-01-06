@@ -11,7 +11,7 @@
 
 <body class="background">
     <div class="rug">
-      <h1>To Do</h1>
+      <h1>Tasks</h1>
       <form method="POST" action="/api/todo">
         <br>
         <input type="text" name="item" placeholder="Add Task">
@@ -32,7 +32,6 @@
                 <% } %>
               <% } %>
               </div>
-
               <p>Archived Tasks</p>
               <div id="completed-todos">
               <% for( let i = 0; i < todos.length; i++ ) { %>

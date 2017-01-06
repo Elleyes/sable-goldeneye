@@ -21,7 +21,6 @@ const markComplete = ids =>
 
 const editTask = (newTask, id) =>
   db.oneOrNone( "UPDATE items SET task=$1 WHERE id=$2", [newTask, id]);
-//update function
 
 const updateCompletion = (id, completed) =>
   db.none( "UPDATE items SET complete=$2 WHERE id=$1", [ id, completed ])
