@@ -37,17 +37,9 @@ router.post('/api/todo', function(req, res) {
 
 router.post('/api/todo/modify', function(request, response) {
     // Get all the items IDs
-    console.log(request.body)
     if ('delete' in request.body) {
         console.log("deleting")
         db.removeItems(request.body.todos)
-    } else if ('complete' in request.body) {
-        //call complete db function
-        console.log("completing")
-        db.markComplete(request.body.todos)
-    } else if ('edit' in request.body) {
-        console.log("editing")
-        db.editTask(request.body.todos, request.body.newToDo)
     }
     console.log('modify');
     response.redirect('/')

@@ -16,20 +16,25 @@ function clicky(i) {
                 "Accept": "application/json"
               })
             })
-            // making an ajax/fetch request to /api/todo/modify
-            // how to pass that value in fetch request
         }
     })
 }
 
+//event listener ensures that the page is loaded before proceeding
 document.addEventListener( "DOMContentLoaded", () => {
+  //checks = all checkboxes
   const checks = document.querySelectorAll( 'input[type=checkbox]' )
-
   checks.forEach( checkbox => {
+    //event listener when checkboxes are checked
     checkbox.addEventListener( 'change', event => {
       const { id } = checkbox.dataset
+
+      //completed = checks the checkbox
       const completed = checkbox.checked
 
+      //creates a post request to the respective route
+      //sets the checkbox to checked
+      //uses header to allow json
       fetch( `/api/todo/${id}`, {
         method: 'POST',
         body: JSON.stringify({ completed }),
