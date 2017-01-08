@@ -1,4 +1,5 @@
 body {
+  background-image: url("../images/snow.jpg");
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
@@ -18,11 +19,17 @@ a {
 
 }
 
-/*.rug {
+.rug {
   position: relative;
   z-index: 100;
   padding: 20px;
-  background: rgb(34,34,34);
-  background: rgba(34,34,34,0.75);
+  background: rgb(255,241,220);
+  background: rgba(255,241,220,0.75);
+  text-align: inherit;
 }
-*/
+
+.delete{
+  border-radius: 0%;
+  border-width: 0px;
+  background-color: #FFFFFF
+}

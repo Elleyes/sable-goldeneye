@@ -1,19 +1,15 @@
 <!DOCTYPE html>
 <html>
-
 <head>
     <title>
         To Do
     </title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
-
 </head>
-
 <body class="background">
     <div class="rug">
-      <h1>Tasks</h1>
+      <p>Tasks</p>
       <form method="POST" action="/api/todo">
-        <br>
         <input type="text" name="item" placeholder="Add Task">
       </form>
       <div class="list-body" To-Do>
@@ -32,6 +28,7 @@
                     <% } %>
                   <% } %>
                   </div>
+                </div>
                   <form method="POST" action="api/todo/delete">
                   <p>Archived Tasks</p>
                   <div id="completed-todos">
@@ -46,13 +43,12 @@
                     <% } %>
                   <% } %>
                 </div>
-                <button>Delete archived items</button>
+                <button class="delete">Delete archived items</button>
                 </form>
             </div>
           </span>
         </div>
       </div>
-    </div>
     <script src="main.js"></script>
 </body>
 
