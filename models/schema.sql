@@ -5,5 +5,5 @@ CREATE TABLE items (
     task VARCHAR(100) NOT NULL,
     complete BOOLEAN NOT NULL DEFAULT false,
     checked BOOLEAN NOT NULL DEFAULT false,
-    listOrder SERIAL /*Mel - is serial the best practice*/
+    listOrder SERIAL /* Elle -column unused but left for future app iteration*/
 )
