@@ -1,9 +1,8 @@
 # sable-goldeneye  | TO DO LIST | Melissa @morelme Elle @elleyes
 
-# To Do List
-## Description
+## Project Description
 
-Complete a to do list application that applies user stories.
+Complete a to do list application that applies user stories
 
 ## Tech Stack And Tools
 
@@ -39,6 +38,25 @@ Goals
 
 ## Stretch Specifications
 - [ ] Deploy the app to heroku
+- [X] Add project creation documentation
 
 ## Documentation
+
+### Project Creation
+
+1. Sketch wireframe with feature set list
+2. Install Postgress
+3. Initialize database schema
+4. NPM init
+5. Add dependencies to `package.json`
+6. NPM install
+7. Follow express setup tutorial
+8. Follow ejs setup tutorial
+9. Update functionality...
+
+
+
+
+
+
 
