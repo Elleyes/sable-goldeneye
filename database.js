@@ -1,5 +1,5 @@
 const pgp = require('pg-promise')()
-const CONNECTION_STRING = "pg://melissamorel@localhost:5432/todolist"
+const CONNECTION_STRING = "pg://yaelamyra@localhost:5432/todolist"
 const db = pgp( CONNECTION_STRING )
 
 const getListos = () =>
